@@ -1,7 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import uuid from 'react-uuid'
 
-import List from './List'
+import List from '../List'
+import Home from './Home';
+import Header from './Header';
+import IndividualExchange from './IndividualExchange';
+import GroupExchange from './GroupExchange';
+import NavBar from './NavBar';
 
 function App() {
   const [ ssParticipants, setSSParticipants ] = useState([]);
@@ -68,8 +74,23 @@ function App() {
 
   return (
     <div className="App">
-      <List ssParticipants = { ssParticipants }/>
+      {/* <List ssParticipants = { ssParticipants }/> */}
+      <Header/>
+      <NavBar />
+      {/* <Home/> */}
+        <Switch>
+        <Route path="/individualexchange">
+          <IndividualExchange />
+        </Route>
+        <Route path="/groupexchange">
+          <GroupExchange />
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+      </Switch>
     </div>
+    
   );
 }
 
