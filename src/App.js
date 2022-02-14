@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-//import logo from './logo.svg';
-import './App.css';
 import uuid from 'react-uuid'
-//import { participants } from "../db";
 
 import List from './List'
 
@@ -17,7 +14,6 @@ function App() {
   }, []);
 
   useEffect(() => {
-  //for (let i=0; i<10; i++){ fetch("https://randomuser.me/api/")
     fetch('https://random-data-api.com/api/users/random_user?size=10')
       .then(response => response.json())
       .then(fakeUsers => {
@@ -55,7 +51,6 @@ function App() {
       .catch(err => {
         console.error(err);
       });
-    //}
     }, []);
 
   function fetchFakeUsers (fakeUsers) {
@@ -73,9 +68,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-      </header> */}
       <List ssParticipants = { ssParticipants }/>
     </div>
   );
