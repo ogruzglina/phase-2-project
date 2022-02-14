@@ -1,0 +1,242 @@
+{
+  "participants": [
+    
+      {
+        "id": "7fa28fb-ba70-271e-587c-10c40206c3f",
+        "name": "Leandra",
+        "lastname": "Legros",
+        "email": "leandra.legros@email.com",
+        "address": {
+          "street": "657 Murazik Port",
+          "city": "North Bradport",
+          "state": "Alaska",
+          "country": "United States",
+          "zipCode": "33259-9243"
+        },
+        "isInSSGroup": false,
+        "secretSantaId": 0,
+        "isRandomGift": false,
+        "giftPriceRange": {
+          "min": 0,
+          "max": 30
+        }
+      },
+      {
+        "id": "5264ea1-db4-c5b8-b1a4-116ed7e74b5",
+        "name": "Jennette",
+        "lastname": "Russel",
+        "login": {
+          "username": "jennette.russel",
+          "password": "0zIdWZB43K"
+        },
+        "email": "jennette.russel@email.com",
+        "address": {
+          "street": "486 Denver Fall",
+          "city": "Lake Joyceport",
+          "state": "South Dakota",
+          "country": "United States",
+          "zipCode": "85948"
+        },
+        "isInSSGroup": false,
+        "secretSantaId": 0,
+        "isRandomGift": false,
+        "giftPriceRange": {
+          "min": 0,
+          "max": 30
+        }
+      },
+      {
+        "id": "683fe08-606-02b7-d255-2c31dadfe7",
+        "name": "Tawanna",
+        "lastname": "Paucek",
+        "login": {
+          "username": "tawanna.paucek",
+          "password": "7o2iEOsCkx"
+        },
+        "email": "tawanna.paucek@email.com",
+        "address": {
+          "street": "75579 Gerhold Skyway",
+          "city": "Lashawnborough",
+          "state": "Nevada",
+          "country": "United States",
+          "zipCode": "02515"
+        },
+        "isInSSGroup": false,
+        "secretSantaId": 0,
+        "isRandomGift": false,
+        "giftPriceRange": {
+          "min": 0,
+          "max": 30
+        }
+      },
+      {
+        "id": "447b88-f45e-1412-467b-3f6d8fef80e",
+        "name": "Jaime",
+        "lastname": "Nolan",
+        "login": {
+          "username": "jaime.nolan",
+          "password": "9zZVNbGJL5"
+        },
+        "email": "jaime.nolan@email.com",
+        "address": {
+          "street": "2675 Oberbrunner Gardens",
+          "city": "Feestberg",
+          "state": "Utah",
+          "country": "United States",
+          "zipCode": "73253"
+        },
+        "isInSSGroup": false,
+        "secretSantaId": 0,
+        "isRandomGift": false,
+        "giftPriceRange": {
+          "min": 0,
+          "max": 30
+        }
+      },
+      {
+        "id": "6e2688e-6c5b-840-f6b-a2bee446cc63",
+        "name": "Lula",
+        "lastname": "Cartwright",
+        "login": {
+          "username": "lula.cartwright",
+          "password": "TABrqKfXiJ"
+        },
+        "email": "lula.cartwright@email.com",
+        "address": {
+          "street": "79683 Jeromy Square",
+          "city": "West Casseymouth",
+          "state": "Tennessee",
+          "country": "United States",
+          "zipCode": "59325"
+        },
+        "isInSSGroup": false,
+        "secretSantaId": 0,
+        "isRandomGift": false,
+        "giftPriceRange": {
+          "min": 0,
+          "max": 30
+        }
+      },
+      {
+        "id": "ec5ad82-fe22-4d00-628-0242b3e4feb5",
+        "name": "Joi",
+        "lastname": "Reichert",
+        "login": {
+          "username": "joi.reichert",
+          "password": "kTLsCG6FyE"
+        },
+        "email": "joi.reichert@email.com",
+        "address": {
+          "street": "9457 VonRueden Pine",
+          "city": "Schmidthaven",
+          "state": "Hawaii",
+          "country": "United States",
+          "zipCode": "21429-9274"
+        },
+        "isInSSGroup": false,
+        "secretSantaId": 0,
+        "isRandomGift": false,
+        "giftPriceRange": {
+          "min": 0,
+          "max": 30
+        }
+      },
+      {
+        "id": "ad6b40-e2eb-87cf-40d-18f86b048d2",
+        "name": "Justa",
+        "lastname": "Lubowitz",
+        "login": {
+          "username": "justa.lubowitz",
+          "password": "IPaml8qHJv"
+        },
+        "email": "justa.lubowitz@email.com",
+        "address": {
+          "street": "2407 Bashirian Creek",
+          "city": "Hermanhaven",
+          "state": "Texas",
+          "country": "United States",
+          "zipCode": "79986-1236"
+        },
+        "isInSSGroup": false,
+        "secretSantaId": 0,
+        "isRandomGift": false,
+        "giftPriceRange": {
+          "min": 0,
+          "max": 30
+        }
+      },
+      {
+        "id": "dfa06a-4785-eb86-8fc6-5bfbe322c5b",
+        "name": "Brendan",
+        "lastname": "Yost",
+        "login": {
+          "username": "brendan.yost",
+          "password": "t2PUWsw9Je"
+        },
+        "email": "brendan.yost@email.com",
+        "address": {
+          "street": "44683 Windler Court",
+          "city": "Donnellyhaven",
+          "state": "Minnesota",
+          "country": "United States",
+          "zipCode": "47426"
+        },
+        "isInSSGroup": false,
+        "secretSantaId": 0,
+        "isRandomGift": false,
+        "giftPriceRange": {
+          "min": 0,
+          "max": 30
+        }
+      },
+      {
+        "id": "c65044-3c8-630d-84-1a5f6cfcd7d6",
+        "name": "Sharen",
+        "lastname": "King",
+        "login": {
+          "username": "sharen.king",
+          "password": "vuLJkTnF1h"
+        },
+        "email": "sharen.king@email.com",
+        "address": {
+          "street": "343 Glennis Estate",
+          "city": "New Mitchel",
+          "state": "Maryland",
+          "country": "United States",
+          "zipCode": "66248"
+        },
+        "isInSSGroup": false,
+        "secretSantaId": 0,
+        "isRandomGift": false,
+        "giftPriceRange": {
+          "min": 0,
+          "max": 30
+        }
+      },
+      {
+        "id": "02f6816-d311-ae2e-be8a-225be7aaeea5",
+        "name": "Alecia",
+        "lastname": "Cruickshank",
+        "login": {
+          "username": "alecia.cruickshank",
+          "password": "P5WR8X2dpS"
+        },
+        "email": "alecia.cruickshank@email.com",
+        "address": {
+          "street": "80329 Timmy Mountains",
+          "city": "Koeppshire",
+          "state": "California",
+          "country": "United States",
+          "zipCode": "83493-2619"
+        },
+        "isInSSGroup": false,
+        "secretSantaId": 0,
+        "isRandomGift": false,
+        "giftPriceRange": {
+          "min": 0,
+          "max": 30
+        }
+      }
+    
+  ]
+}
