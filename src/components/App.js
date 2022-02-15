@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import uuid from 'react-uuid'
-
-import List from '../List'
 import Home from './Home';
 import Header from './Header';
 import IndividualExchange from './IndividualExchange';
@@ -21,7 +19,13 @@ function App() {
 
   useEffect(() => {
     fetch('https://random-data-api.com/api/users/random_user?size=10')
-      .then(response => response.json())
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Something went wrong');
+        }
+      })
       .then(fakeUsers => {
         if (isFakeUsers.current) {
           const fakeUsersInfo = fakeUsers.map( fakeUser => {
@@ -29,10 +33,6 @@ function App() {
               id: uuid(),
               name: fakeUser.first_name,
               lastname: fakeUser.last_name,
-              login: {
-                username: fakeUser.username,
-                password: fakeUser.password,
-              },
               email: fakeUser.email,
               address: {
                 street: fakeUser.address.street_address,
@@ -41,9 +41,10 @@ function App() {
                 country: fakeUser.address.country,
                 zipCode: fakeUser.address.zip_code,
               },
-              isInSSGroup: false,
+              isInGroupExchange: false,
               secretSantaId: 0,
               isRandomGift: false,
+              wishlist: "",
               giftPriceRange: {
                 min: 0,
                 max: 30,
@@ -55,7 +56,7 @@ function App() {
         }
       })
       .catch(err => {
-        console.error(err);
+        console.error('Fetch API error: ', err);
       });
     }, []);
 
@@ -66,19 +67,14 @@ function App() {
       body: JSON.stringify(fakeUsers),
     })
       .then(r => r.json())
-      .then(data => console.log(data));
+      .then(data => console.log(data)); {/* don't forget to delete this or change the logic!! */}
   }
-
-
-  
 
   return (
     <div className="App">
-      {/* <List ssParticipants = { ssParticipants }/> */}
       <Header/>
-      <NavBar />
-      {/* <Home/> */}
-        <Switch>
+      <NavBar />  {/* it should be a child of headers */}
+      <Switch>
         <Route path="/individualexchange">
           <IndividualExchange />
         </Route>
