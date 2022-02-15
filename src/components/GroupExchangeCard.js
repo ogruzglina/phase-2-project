@@ -1,9 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-function JoinExchangeCards() {
+function GroupExchangeCard() {
   return (
     <div>
-        <h1> Card </h1>
         {/* Create card similar to the elfster card- has a link to the other 
             page, some image, and a subheading
         */}
@@ -15,4 +15,4 @@ function JoinExchangeCards() {
     );
 }
 
-export default JoinExchangeCards;
+export default GroupExchangeCard;

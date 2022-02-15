@@ -47,3 +47,14 @@ code {
 .textfield{
   margin: 5px;
 }
+
+#card-image{
+  width: 250px;
+  height: 250px; 
+}
+
+#card{
+border: 5px solid red;
+width: 450px; 
+height: 450px; 
+}

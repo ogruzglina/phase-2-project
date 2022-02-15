@@ -9,7 +9,8 @@ function Home() {
   return (
     <div>
         {/* Links on the bottom to the individual and group exchange pages*/}
-        <JoinExchangeCards/>
+        <GroupExchangeCard/>
+        <IndividualExchangeCard/>
         <Popup/>
     </div>
   );
