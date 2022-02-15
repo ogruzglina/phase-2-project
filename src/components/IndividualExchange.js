@@ -1,13 +1,41 @@
-import React from "react";
+ import React, { useState } from "react";
+
+// import TextField from '@mui/material/TextField';
+// import FormControl from '@mui/material/FormControl';
 
 function IndividualExchange() {
   const priceRenge = [[0,30], [31, 60], [61, 100], [100, 150], [151, 250], [251, 400], [401,1000]];
-  
-  function handleChange () {
+  const [formData, setFormData] = useState({
+    name: '',
+    lastname: '',
+    email: '',
+    address: {
+      street: '',
+      city: '',
+      state: '',
+      country: '',
+      zipCode: '',
+    },
+    groupName: '',
+    secretSantaId: 0,
+    isRandomGift: false,
+    wishlist: '',
+    giftPriceRange: {
+      min: 0,
+      max: 30,
+    },
+  });
 
-  } 
+  function handleChange(e) {
+    setFormData({
+      ...formData,
+      address:{[e.target.name] : e.target.value},
+    });
+  }
+  console.log(formData);
 
-  function handleSubmit () {
+  function handleSubmit (e) {
+    e.preventDefault();
 
   }
 
@@ -51,3 +79,9 @@ function IndividualExchange() {
 }
 
 export default IndividualExchange;
+
+
+
+
+
+

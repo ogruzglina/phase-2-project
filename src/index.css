@@ -27,7 +27,23 @@ code {
     monospace;
 }
 
+.t {
+  /* width: "200px"; */
+  margin: "5px";
+}
+.wishlist {
+  width: "400px";
+  margin: "5px";
+}
 /* .inputs {
   display: flex;
   flex-direction: column;
 } */
+#formControl {
+  padding: 5px;
+  margin: 5px;
+}
+
+.textfield{
+  margin: 5px;
+}
