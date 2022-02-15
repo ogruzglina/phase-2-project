@@ -43,11 +43,11 @@ function App() {
               },
               groupName: '',
               secretSantaId: 0,
-              isRandomGift: false,
+              isRandomGift: true,
               wishlist: "",
               giftPriceRange: {
                 min: 0,
-                max: 30,
+                max: 0,
               },
             }
           });
@@ -69,6 +69,7 @@ function App() {
       .then(r => r.json())
       .then(data => console.log(data)); {/* don't forget to delete this or change the logic!! */}
   }
+  console.log(ssParticipants)
 
   return (
     <div className="App">
