@@ -41,7 +41,7 @@ function App() {
                 country: fakeUser.address.country,
                 zipCode: fakeUser.address.zip_code,
               },
-              isInGroupExchange: false,
+              groupName: '',
               secretSantaId: 0,
               isRandomGift: false,
               wishlist: "",

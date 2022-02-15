@@ -28,6 +28,7 @@ function GroupExchange() {
               { options }
             </select>
           </label>
+          <input type="text" name="groupName" placeholder="Your group name" onChange = { handleChange }/>
         </div>
 
         <button type="submit">
