@@ -5,11 +5,13 @@ import Home from './Home';
 import Header from './Header';
 import IndividualExchange from './IndividualExchange';
 import GroupExchange from './GroupExchange';
-import NavBar from './NavBar';
+// import NavBar from './NavBar';
 
 function App() {
   const [ ssParticipants, setSSParticipants ] = useState([]);
+  const [ isFoundSS, setIsFoundSS] = useState(false);
   let isFakeUsers = useRef(false);
+  
 
   useEffect(() => {
   fetch('http://localhost:3000/participants')
@@ -71,10 +73,12 @@ function App() {
   }
 
   function handleAddNewUser (newUser) {
-    setSSParticipants(ssParticipants => [
+    setSSParticipants( ssParticipants => 
+      [
       ...ssParticipants,
       newUser
     ]);
+
     findSecretSanta(newUser);
   }
 
@@ -87,13 +91,15 @@ function App() {
       && participant.secretSantaId === 0
     );
 
-    const randomSSanta = individualSSUsers[Math.floor(Math.random() * individualSSUsers.length)];
-
-    updateSecretSantaId(newUser, randomSSanta);
-    updateSecretSantaId(randomSSanta, newUser);
-    alert(`Your Secret Santa is ${randomSSanta.name} ${randomSSanta.lastname} ${randomSSanta.address}`);
-
-    console.log('after match', ssParticipants)
+    if ( individualSSUsers.length > 0 ) {
+      const randomSSanta = individualSSUsers[Math.floor(Math.random() * individualSSUsers.length)];
+  
+      updateSecretSantaId(newUser, randomSSanta);
+      updateSecretSantaId(randomSSanta, newUser);
+      alert(`Your Secret Santa is ${randomSSanta.name} ${randomSSanta.lastname} ${randomSSanta.address}`);
+      
+      setIsFoundSS(isFoundSS => true);
+    }
   }
 
   function updateSecretSantaId (user, ssUser) {
@@ -117,12 +123,38 @@ function App() {
     setSSParticipants(ssParticipants => updatedSecretSantaId);
   }
 
-  console.log('after match', ssParticipants)
+  console.log('end of app ', ssParticipants);
+
+  function deleteMatchedUsers () {
+    const matchedUsers = ssParticipants.filter( participant => participant.secretSantaId !== 0 );
+
+    matchedUsers.map( user => {
+      fetch(`http://localhost:3000/participants/${user.id}`, {
+        method: 'DELETE',
+      })
+        .then( r => r.json())
+        .then( () => handleDelete(user.id))
+    });
+  }
+
+  function handleDelete (userId) {
+    const updatedSsParticipants = ssParticipants.filter( participant => participant.id !== userId);
+
+    setSSParticipants( ssParticipants => updatedSsParticipants);
+  }
+
+  if ( isFoundSS ) {
+    deleteMatchedUsers ();
+
+    setIsFoundSS (isFoundSS => false);
+  }
+
+
 
   return (
     <div className="App">
       <Header/>
-      <NavBar />  {/* it should be a child of headers */}
+      {/* <NavBar />  it should be a child of headers */}
       <Switch>
         <Route path="/individualexchange">
           <IndividualExchange onAddNewUser = { handleAddNewUser }/>
