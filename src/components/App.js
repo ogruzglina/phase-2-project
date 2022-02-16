@@ -69,7 +69,55 @@ function App() {
       .then(r => r.json())
       .then(data => console.log(data)); {/* don't forget to delete this or change the logic!! */}
   }
-  console.log(ssParticipants)
+
+  function handleAddNewUser (newUser) {
+    setSSParticipants(ssParticipants => [
+      ...ssParticipants,
+      newUser
+    ]);
+    findSecretSanta(newUser);
+  }
+
+  function findSecretSanta (newUser) {
+    const individualSSUsers = ssParticipants.filter( participant => 
+      participant.groupName === '' 
+      && participant.id !== newUser.id 
+      && participant.isRandomGift === newUser.isRandomGift
+      && participant.giftPriceRange.min === newUser.giftPriceRange.min
+      && participant.secretSantaId === 0
+    );
+
+    const randomSSanta = individualSSUsers[Math.floor(Math.random() * individualSSUsers.length)];
+
+    updateSecretSantaId(newUser, randomSSanta);
+    updateSecretSantaId(randomSSanta, newUser);
+    alert(`Your Secret Santa is ${randomSSanta.name} ${randomSSanta.lastname} ${randomSSanta.address}`);
+
+    console.log('after match', ssParticipants)
+  }
+
+  function updateSecretSantaId (user, ssUser) {
+    fetch(`http://localhost:3000/participants/${user.id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        ...user,
+        secretSantaId: ssUser.id,
+      }),
+    })
+      .then(r => r.json())
+      .then(updatedUser => updateSsParticipants(updatedUser));
+  }
+
+  function updateSsParticipants (updatedUser) {
+    const updatedSecretSantaId = ssParticipants.map ( participant =>
+      participant.id === updatedUser.id ? updatedUser : participant
+    );
+
+    setSSParticipants(ssParticipants => updatedSecretSantaId);
+  }
+
+  console.log('after match', ssParticipants)
 
   return (
     <div className="App">
@@ -77,7 +125,7 @@ function App() {
       <NavBar />  {/* it should be a child of headers */}
       <Switch>
         <Route path="/individualexchange">
-          <IndividualExchange />
+          <IndividualExchange onAddNewUser = { handleAddNewUser }/>
         </Route>
         <Route path="/groupexchange">
           <GroupExchange />

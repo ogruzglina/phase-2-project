@@ -3,11 +3,12 @@
 // import TextField from '@mui/material/TextField';
 // import FormControl from '@mui/material/FormControl';
 
-function IndividualExchange() {
-  const priceRenge = [[0,30], [31, 60], [61, 100], [100, 150], [151, 250], [251, 400], [401,1000]];
-  const options = priceRenge.map( price => 
+function IndividualExchange({ onAddNewUser }) {
+  const priceRange = [[0,30], [31, 60], [61, 100], [100, 150], [151, 250], [251, 400], [401,1000]];
+  const options = priceRange.map( price => 
     <option key = { price } >$ { price[0] } - $ { price[1] }</option>
   );
+  const [ selectedPriceRange, setSelectedPriceRange] = useState('$ 0 - $ 30');
   const [ isWishList, setIsWishList] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -30,7 +31,7 @@ function IndividualExchange() {
     },
   });
 
-  function handleChange(e) {
+  function handleChange (e) {
     if (e.target.name === 'street' 
       || e.target.name === 'city' 
       || e.target.name === 'state' 
@@ -67,9 +68,10 @@ function IndividualExchange() {
           isRandomGift : false,
         });
       }
-    } else if (e.target.name === 'priceRenge') {
-      const min = e.target.value.split(' ')[1];
-      const max = e.target.value.split(' ')[4];
+    } else if (e.target.name === 'priceRange') {
+      setSelectedPriceRange(e.target.value);
+      const min = parseInt(e.target.value.split(' ')[1]);
+      const max = parseInt(e.target.value.split(' ')[4]);
       setFormData({
         ...formData,
         giftPriceRange: {
@@ -87,20 +89,28 @@ function IndividualExchange() {
 
   function handleSubmit (e) {
     e.preventDefault();
-
+    fetch('http://localhost:3000/participants', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    })
+      .then(r => r.json())
+      .then(newUser => onAddNewUser(newUser));
+      
+    e.target.reset();
   }
 
   const showWishListFields = isWishList 
     ? <>
-      <input type="text" name="wishlist" placeholder="Wish list" onChange = { handleChangeRadio }/>
-          <label> Gift price renge
-            <select name="priceRenge" value ='!!!put here form.data!!!'  onChange={ handleChangeRadio }>
-              { options }
-            </select>
-          </label>
+      {/* <input type="textarea" name="wishlist" placeholder="Wish list" onChange = { handleChangeRadio }/> */}
+      <textarea name="wishlist" placeholder="Wish list" onChange = { handleChangeRadio }/>
+      <label> Gift price range 
+        <select name="priceRange" value ={ selectedPriceRange }  onChange={ handleChangeRadio }>
+          { options }
+        </select>
+      </label>
     </>
     : null;
-  
 
   return (
     <div >
