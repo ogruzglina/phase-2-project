@@ -5,7 +5,7 @@ import Home from './Home';
 import Header from './Header';
 import IndividualExchange from './IndividualExchange';
 import GroupExchange from './GroupExchange';
-// import NavBar from './NavBar';
+
 
 function App() {
   const [ ssParticipants, setSSParticipants ] = useState([]);
@@ -78,8 +78,6 @@ function App() {
       ...ssParticipants,
       newUser
     ]);
-
-    findSecretSanta(newUser);
   }
 
   function findSecretSanta (newUser) {
@@ -96,11 +94,30 @@ function App() {
   
       updateSecretSantaId(newUser, randomSSanta);
       updateSecretSantaId(randomSSanta, newUser);
-      alert(`Your Secret Santa is ${randomSSanta.name} ${randomSSanta.lastname} ${randomSSanta.address}`);
-      
+     // alert(`Your Secret Santa is ${randomSSanta.name} ${randomSSanta.lastname} ${randomSSanta.address}`);
+
       setIsFoundSS(isFoundSS => true);
     }
   }
+
+  function findGroupSecretSanta (newUser) {
+
+    const groupSSUsers = ssParticipants.filter( participant => 
+      participant.groupName === newUser.groupName 
+      && participant.id === newUser.id
+    );
+    console.log('findgroup ',groupSSUsers)
+    // if ( groupSSUsers.length > 0 ) {
+    //   const randomSSanta = groupSSUsers[Math.floor(Math.random() * groupSSUsers.length)];
+  
+      // updateSecretSantaId(newUser, randomSSanta);
+      // updateSecretSantaId(randomSSanta, newUser);
+     // alert(`Your Secret Santa is ${randomSSanta.name} ${randomSSanta.lastname} ${randomSSanta.address}`);
+
+      //setIsFoundSS(isFoundSS => true);
+    //}
+  }
+
 
   function updateSecretSantaId (user, ssUser) {
     fetch(`http://localhost:3000/participants/${user.id}`, {
@@ -128,13 +145,13 @@ function App() {
   function deleteMatchedUsers () {
     const matchedUsers = ssParticipants.filter( participant => participant.secretSantaId !== 0 );
 
-    matchedUsers.map( user => {
+    matchedUsers.map( user => 
       fetch(`http://localhost:3000/participants/${user.id}`, {
         method: 'DELETE',
       })
         .then( r => r.json())
         .then( () => handleDelete(user.id))
-    });
+    );
   }
 
   function handleDelete (userId) {
@@ -154,13 +171,12 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      {/* <NavBar />  it should be a child of headers */}
       <Switch>
-        <Route path="/individualexchange">
-          <IndividualExchange onAddNewUser = { handleAddNewUser }/>
+        <Route path="/individual-exchange">
+          <IndividualExchange onAddNewUser = { handleAddNewUser } onFindSSanta = { findSecretSanta }/>
         </Route>
-        <Route path="/groupexchange">
-          <GroupExchange />
+        <Route path="/group-exchange">
+          <GroupExchange onAddNewUser = { handleAddNewUser } onFindGroupSSanta = { findGroupSecretSanta }/>
         </Route>
         <Route exact path="/">
           <Home />

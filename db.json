@@ -1,90 +1,6 @@
 {
   "participants": [
     {
-      "id": "4acfb61-0d6c-ac4f-20d5-40a7ee4ef",
-      "name": "Porfirio",
-      "lastname": "Smith",
-      "email": "porfirio.smith@email.com",
-      "address": {
-        "street": "396 Shields Springs",
-        "city": "North Sharylborough",
-        "state": "West Virginia",
-        "country": "United States",
-        "zipCode": "87747"
-      },
-      "groupName": "",
-      "secretSantaId": 0,
-      "isRandomGift": false,
-      "wishlist": "Chocolate",
-      "giftPriceRange": {
-        "min": 0,
-        "max": 30
-      }
-    },
-    {
-      "id": "7817dd-65ee-767-481b-30ab3f603ea",
-      "name": "Rolando",
-      "lastname": "Bergnaum",
-      "email": "rolando.bergnaum@email.com",
-      "address": {
-        "street": "591 Sauer Curve",
-        "city": "Smithside",
-        "state": "Tennessee",
-        "country": "United States",
-        "zipCode": "72021"
-      },
-      "groupName": "",
-      "secretSantaId": 0,
-      "isRandomGift": false,
-      "wishlist": "backpack",
-      "giftPriceRange": {
-        "min": 31,
-        "max": 60
-      }
-    },
-    {
-      "id": "06e475d-bd1-4400-3861-c86c724fb1dd",
-      "name": "Gregory",
-      "lastname": "Schulist",
-      "email": "gregory.schulist@email.com",
-      "address": {
-        "street": "75967 Shanahan Hills",
-        "city": "Langoshshire",
-        "state": "New Jersey",
-        "country": "United States",
-        "zipCode": "71591"
-      },
-      "groupName": "",
-      "secretSantaId": 0,
-      "isRandomGift": true,
-      "wishlist": "",
-      "giftPriceRange": {
-        "min": 0,
-        "max": 0
-      }
-    },
-    {
-      "id": "1e857-7177-f1b-df3a-b1c7086de72",
-      "name": "Mikel",
-      "lastname": "Ullrich",
-      "email": "mikel.ullrich@email.com",
-      "address": {
-        "street": "1233 Dach Parkways",
-        "city": "Ivoryton",
-        "state": "Colorado",
-        "country": "United States",
-        "zipCode": "43995"
-      },
-      "groupName": "",
-      "secretSantaId": 0,
-      "isRandomGift": true,
-      "wishlist": "",
-      "giftPriceRange": {
-        "min": 0,
-        "max": 0
-      }
-    },
-    {
       "id": "013420a-d75a-ee78-fbf2-6e41ecda83",
       "name": "Timothy",
       "lastname": "Von",
@@ -104,69 +20,6 @@
         "min": 251,
         "max": 400
       }
-    },
-    {
-      "name": "Secret",
-      "lastname": "Santa",
-      "email": "ss@gmail.com",
-      "address": {
-        "street": "666 Secret Santa",
-        "city": "North",
-        "state": "",
-        "country": "Laplandia",
-        "zipCode": "34576"
-      },
-      "groupName": "",
-      "secretSantaId": 0,
-      "isRandomGift": true,
-      "wishlist": "",
-      "giftPriceRange": {
-        "min": 0,
-        "max": 0
-      },
-      "id": "FUP2W9R"
-    },
-    {
-      "name": "Olha",
-      "lastname": "Gruzglina",
-      "email": "olga.zhmura@gmail.com",
-      "address": {
-        "street": "33 Park View Avenue",
-        "city": "Jersey City",
-        "state": "NJ",
-        "country": "United States",
-        "zipCode": "07302"
-      },
-      "groupName": "",
-      "secretSantaId": "L91M6lJ",
-      "isRandomGift": false,
-      "wishlist": "blanket",
-      "giftPriceRange": {
-        "min": 31,
-        "max": 60
-      },
-      "id": "-n5CbE4"
-    },
-    {
-      "name": "bla",
-      "lastname": "blabla",
-      "email": "bla@blabla.com",
-      "address": {
-        "street": "2 Beech Lane",
-        "city": "Morristown",
-        "state": "New Jersey",
-        "country": "United States",
-        "zipCode": "07960"
-      },
-      "groupName": "",
-      "secretSantaId": 0,
-      "isRandomGift": true,
-      "wishlist": "",
-      "giftPriceRange": {
-        "min": 0,
-        "max": 0
-      },
-      "id": "ACONrBa"
     },
     {
       "name": "Ola",
@@ -190,27 +43,6 @@
       "id": "lSaP-qY"
     },
     {
-      "name": "Al",
-      "lastname": "fdfgr",
-      "email": "d@oi.p",
-      "address": {
-        "street": "33 Park View Avenue",
-        "city": "Jersey City",
-        "state": "NJ",
-        "country": "United States",
-        "zipCode": "07302"
-      },
-      "groupName": "",
-      "secretSantaId": 0,
-      "isRandomGift": true,
-      "wishlist": "",
-      "giftPriceRange": {
-        "min": 0,
-        "max": 0
-      },
-      "id": "RHFMriC"
-    },
-    {
       "name": "Alena",
       "lastname": "kjghj",
       "email": "",
@@ -232,46 +64,382 @@
       "id": "Q93DK4s"
     },
     {
-      "name": "Oleg",
-      "lastname": "sdvsdv",
-      "email": "",
+      "name": "Alla",
+      "lastname": "Gromova",
+      "email": "agromova@gmail.com",
       "address": {
-        "street": "33 Park View Avenue, Apt 1405",
+        "street": "2 Beech Lane",
+        "city": "Dnipro",
+        "state": "",
+        "country": "Ukraine",
+        "zipCode": "52000"
+      },
+      "groupName": "",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "dog",
+      "giftPriceRange": {
+        "min": 401,
+        "max": 1000
+      },
+      "id": "vYAOwK5"
+    },
+    {
+      "name": "Olha Gruzglina",
+      "lastname": "sd",
+      "email": "olga.zhmura@gmail.com",
+      "address": {
+        "street": "33 Park View Avenue",
         "city": "Jersey City",
         "state": "NJ",
-        "country": "",
+        "country": "United States",
         "zipCode": "07302"
       },
       "groupName": "",
       "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "shampoo",
+      "giftPriceRange": {
+        "min": 0,
+        "max": 0
+      },
+      "id": "uCw6j31"
+    },
+    {
+      "name": "poke",
+      "lastname": "blabla",
+      "email": "b@b.b",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "zipCode": ""
+      },
+      "groupName": "Santa",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "",
+      "giftPriceRange": {
+        "min": 0,
+        "max": 30
+      },
+      "id": "aKeBhwI"
+    },
+    {
+      "name": "sobble",
+      "lastname": "blaba",
+      "email": "b@b.b",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "zipCode": ""
+      },
+      "groupName": "Santa",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "",
+      "giftPriceRange": {
+        "min": 0,
+        "max": 30
+      },
+      "id": "ZRriWLW"
+    },
+    {
+      "name": "sofia",
+      "lastname": "baba",
+      "email": "b@b.b",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "zipCode": ""
+      },
+      "groupName": "Santa",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "",
+      "giftPriceRange": {
+        "min": 0,
+        "max": 30
+      },
+      "id": "57NoHVJ"
+    },
+    {
+      "name": "ramen",
+      "lastname": "baba",
+      "email": "b@b.b",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "zipCode": ""
+      },
+      "groupName": "Santa",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "",
+      "giftPriceRange": {
+        "min": 0,
+        "max": 30
+      },
+      "id": "CHrhcR1"
+    },
+    {
+      "name": "Olha",
+      "lastname": "Zhmura",
+      "email": "olga.zhmura@gmail.com",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "zipCode": ""
+      },
+      "groupName": "blabla",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "",
+      "giftPriceRange": {
+        "min": 31,
+        "max": 60
+      },
+      "id": "7n_Pozl"
+    },
+    {
+      "name": "Alex",
+      "lastname": "Gruzglin",
+      "email": "a@gmail.com",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "zipCode": ""
+      },
+      "groupName": "blabla",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "",
+      "giftPriceRange": {
+        "min": 31,
+        "max": 60
+      },
+      "id": "JFHNomU"
+    },
+    {
+      "name": "Hannah",
+      "lastname": "Gruzglin",
+      "email": "h@gmail.com",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "zipCode": ""
+      },
+      "groupName": "blabla",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "",
+      "giftPriceRange": {
+        "min": 31,
+        "max": 60
+      },
+      "id": "NMz7yzT"
+    },
+    {
+      "name": "1",
+      "lastname": "1",
+      "email": "1@1.1",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "zipCode": ""
+      },
+      "groupName": "1",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "",
+      "giftPriceRange": {
+        "min": 100,
+        "max": 150
+      },
+      "id": "NXsWrJr"
+    },
+    {
+      "name": "2",
+      "lastname": "2",
+      "email": "1@1.1",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "zipCode": ""
+      },
+      "groupName": "1",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "",
+      "giftPriceRange": {
+        "min": 100,
+        "max": 150
+      },
+      "id": "RRU4PZr"
+    },
+    {
+      "name": "4",
+      "lastname": "4",
+      "email": "1@1.1",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "zipCode": ""
+      },
+      "groupName": "1",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "",
+      "giftPriceRange": {
+        "min": 100,
+        "max": 150
+      },
+      "id": "MWMw1e1"
+    },
+    {
+      "name": "3",
+      "lastname": "3",
+      "email": "1@1.1",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "zipCode": ""
+      },
+      "groupName": "1",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "",
+      "giftPriceRange": {
+        "min": 100,
+        "max": 150
+      },
+      "id": "WTKQQPl"
+    },
+    {
+      "name": "Alex Gruzglin",
+      "lastname": "eeee",
+      "email": "olga.zhmura@gmail.com",
+      "address": {
+        "street": "33 Park View Avenue",
+        "city": "Jersey City",
+        "state": "NJ",
+        "country": "United States",
+        "zipCode": "07302"
+      },
+      "groupName": "",
+      "secretSantaId": "59yX5HO",
       "isRandomGift": true,
       "wishlist": "",
       "giftPriceRange": {
         "min": 0,
         "max": 0
       },
-      "id": "bqgg6Rf"
+      "id": "MQdcmQO"
     },
     {
-      "name": "bla",
-      "lastname": "blabla",
-      "email": "blablabla@gmail.com",
+      "name": "poke",
+      "lastname": "Santa",
+      "email": "olga.zhmura@gmail.com",
       "address": {
-        "street": "23 bla",
-        "city": "blablabla",
-        "state": "pa",
-        "country": "usa",
-        "zipCode": "34522"
+        "street": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "zipCode": ""
+      },
+      "groupName": "fuuu",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "",
+      "giftPriceRange": {
+        "min": 0,
+        "max": 30
+      },
+      "id": "UIdbz9h"
+    },
+    {
+      "name": "Olha",
+      "lastname": "sd",
+      "email": "olga.zhmura@gmail.com",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "zipCode": ""
+      },
+      "groupName": "fuuu",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "",
+      "giftPriceRange": {
+        "min": 0,
+        "max": 0
+      },
+      "id": "kAhqA_e"
+    },
+    {
+      "name": "ramen",
+      "lastname": "4",
+      "email": "olga.zhmura@gmail.co",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "country": "",
+        "zipCode": ""
+      },
+      "groupName": "fuuu",
+      "secretSantaId": 0,
+      "isRandomGift": false,
+      "wishlist": "",
+      "giftPriceRange": {
+        "min": 0,
+        "max": 0
+      },
+      "id": "d_Xzeu7"
+    },
+    {
+      "name": "Adf",
+      "lastname": "sdfdfvd",
+      "email": "olga.zhmura@gmail.com",
+      "address": {
+        "street": "2 Beech Lane",
+        "city": "Morristown",
+        "state": "New Jersey",
+        "country": "United States",
+        "zipCode": "07960"
       },
       "groupName": "",
-      "secretSantaId": "-n5CbE4",
-      "isRandomGift": false,
-      "wishlist": "books",
+      "secretSantaId": "MQdcmQO",
+      "isRandomGift": true,
+      "wishlist": "",
       "giftPriceRange": {
-        "min": 31,
-        "max": 60
+        "min": 0,
+        "max": 0
       },
-      "id": "L91M6lJ"
+      "id": "59yX5HO"
     }
   ]
 }

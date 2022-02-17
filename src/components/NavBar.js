@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Box from '@mui/material/Box';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -14,8 +14,8 @@ function NavBar() {
       <Box sx={{ width: '100%', bgcolor: 'background.paper' }}> 
         <Tabs value={value} onChange={handleChange} centered>
           <Tab label="Home" to="/" component={Link} />
-          <Tab label="Individual Exchange" to="/individualexchange" component={Link} />
-          <Tab label="Group Echange" to="/groupexchange" component={Link} />
+          <Tab label="Individual Exchange" to="/individual-exchange" component={Link} />
+          <Tab label="Group Exchange" to="/group-exchange" component={Link} />
         </Tabs>
       </Box>
     </div>
