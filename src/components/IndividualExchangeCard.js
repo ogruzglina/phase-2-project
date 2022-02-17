@@ -46,7 +46,7 @@ function IndividualExchangeCard() {
                     </CardContent>
 
                     <CardActions>
-                            <Link to="/individualexchange"> Individual Exchange </Link>
+                            <Link to="/individual-exchange"> Individual Exchange </Link>
                     </CardActions>
                 </Card>
             </Grid>
@@ -71,9 +71,9 @@ function IndividualExchangeCard() {
                     </CardContent>
 
                     <CardActions>
-                            <Link to="/groupexchange"> Group Exchange </Link>
+                            <Link to="/group-exchange"> Group Exchange </Link>
                             {/* Uses a button for the group instead of the link  */}
-                            <Button size="small"><Link to="/groupexchange"></Link>Group</Button>
+                            <Button size="small"><Link to="/group-exchange"></Link>Group</Button>
                     </CardActions>
                 </Card>
 

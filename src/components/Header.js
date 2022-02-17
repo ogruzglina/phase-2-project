@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from './NavBar';
 
 function Header() {
   return (
@@ -12,6 +13,7 @@ function Header() {
         src="https://sneakysanta.com/img/sneakysanta-main-hero.png"
         alt="secret santa"
       />
+      <NavBar />
     </header>
   );
 }
