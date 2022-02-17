@@ -8,7 +8,6 @@ function Home() {
     <div>
         {/* Links on the bottom to the individual and group exchange pages*/}
         <IndividualExchangeCard/>
-        <Popup/>
     </div>
   );
 }

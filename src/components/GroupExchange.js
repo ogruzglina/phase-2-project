@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import Popup from './Popup'
 
 const style = {
   position: 'absolute',
@@ -21,6 +22,7 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
   const priceRange = ['Choose a Price Range', [0,30], [31, 60], [61, 100], [100, 150], [151, 250], [251, 400], [401,1000]];
   const options = priceRange.map( price => 
     price === 'Choose a Price Range'
@@ -165,16 +167,9 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta }) {
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-            Your Random Secret Santa!
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Import Data Here.
-          </Typography>
+          <Popup />
         </Box>
       </Modal>
     </div>
