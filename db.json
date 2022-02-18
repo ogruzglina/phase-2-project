@@ -141,26 +141,6 @@
       }
     },
     {
-      "id": 9,
-      "name": "Doug",
-      "lastname": "Lang",
-      "email": "doug.lang@email.com",
-      "address": {
-        "street": "2683 Leeanne Landing",
-        "city": "East Ladawn",
-        "state": "Iowa",
-        "country": "United States",
-        "zipCode": "34345"
-      },
-      "groupName": "",
-      "isRandomGift": true,
-      "wishlist": "",
-      "giftPriceRange": {
-        "min": 0,
-        "max": 0
-      }
-    },
-    {
       "name": "poke",
       "lastname": "blabla",
       "email": "olga.zhmura@gmail.com",
@@ -225,24 +205,18 @@
     },
     {
       "name": "ramen",
-      "lastname": "blabla",
-      "email": "olga.zhmura@gmail.com",
       "address": {
         "street": "",
         "city": "",
         "state": "",
         "country": "",
         "zipCode": ""
-      },
-      "groupName": "fu",
       "isRandomGift": true,
       "wishlist": "",
       "giftPriceRange": {
         "min": 0,
         "max": 0
       },
-      "id": 13,
-      "secretSantaId": 12
     }
   ]
 }

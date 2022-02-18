@@ -1,37 +1,27 @@
 import { Button,Card, CardContent, CardMedia, CardActions,  Grid, Paper, Typography } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
-
-
 
 function IndividualExchangeCard() {
 
   return (
-    <div>
-        {/* Create card similar to the elfster card- has a link to the other 
-            page, some image, and a subheading
-        */}
-        {/* Create json file with new data, then import each of the elements to make 
-        the componenet dynamic
-        */}
-        {/* Then you can call the individual card and have it import the data*/}
-        
-        {/* <div id="card">
-            <img id="card-image" src="" alt="Card image cap"></img>
-            <div>
-                <h2 >Card title</h2>
-                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <Link to="/individualexchange"> Individual Exchange </Link>
-            </div>
-        </div> */}
+    <div> 
 
-        <Grid container>
+    <h1>Exchange Rules</h1>
+    <ul className="list">
+        <li> Keep your match a secret; don't ruin the surprise! </li>
+        <li> To exchange without a group: go to random exchange in order to be paired with someone</li>
+        <li> To exchange with a group of friends, go to group exchange </li>
+    </ul>
+
+        <hr size="5" width="65%" color="lightblue" margin-top="50px" padding-bottom="20px"></hr>
+
+        <Grid container justifyContent="center" spacing={5}>
             <Grid item >
-                <Card sx={{ maxWidth: 350 }}>
+                <Card variant="outlined" sx={{  maxWidth: 500 }}> 
                     <CardMedia
                         component="img"
-                        height="350"
-                        image="https://www.lawlessfrench.com/wp-content/uploads/present-participle-as-adjective.jpg"
+                        height="200"
+                        image="https://media.istockphoto.com/vectors/concept-with-secret-santa-vector-id1064095906?k=20&m=1064095906&s=612x612&w=0&h=eG4UE_gl92sz7fJQS5EVCs77RkPMnmbtOsPiBoahz8Y="
                         alt="single present image"
                     />
 
@@ -40,23 +30,22 @@ function IndividualExchangeCard() {
                     Join Random Exchange 
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                    Swap with a stranger in order to exchange a gift one on one!
                     </Typography>
                     </CardContent>
 
-                    <CardActions>
-                            <Link to="/individual-exchange"> Individual Exchange </Link>
+                    <CardActions justifyContent="center">
+                            <Button sx={{ml:12}} color="success" variant="contained" size="small" href="/individual-exchange">Individual Exchange</Button>
                     </CardActions>
                 </Card>
             </Grid>
 
             <Grid item >
-            <Card sx={{ maxWidth: 350 }}>
+            <Card variant="outlined" sx={{ maxWidth: 500 }}>
                     <CardMedia
                         component="img"
-                        height="350"
-                        image="https://www.creativefabrica.com/wp-content/uploads/2021/03/15/pile-of-gifts-Graphics-9608894-1.jpg"
+                        height="200"
+                        image="https://edtech4beginnerscom.files.wordpress.com/2017/10/490989713-e1508467778912.jpg"
                         alt="group present image"
                     />
 
@@ -65,22 +54,18 @@ function IndividualExchangeCard() {
                     Join Group Exchange
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000
-                    species, ranging across all continents except Antarctica
+                    Swap between a group of friends to swap!
                     </Typography>
                     </CardContent>
 
-                    <CardActions>
-                            <Link to="/group-exchange"> Group Exchange </Link>
-                            {/* Uses a button for the group instead of the link  */}
-                            <Button size="small"><Link to="/group-exchange"></Link>Group</Button>
+                    <CardActions justifyContent="center">
+                            <Button  sx={{ml:20}} color="success" variant="contained" size="small" href="/group-exchange">Group Exchange</Button>
                     </CardActions>
                 </Card>
 
             </Grid>
 
         </Grid>
-
 
    
     </div>
