@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+//import uuid from 'react-uuid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -18,10 +19,11 @@ const style = {
 };
 
 
-function GroupExchange({ onAddNewUser, onFindGroupSSanta }) {
+function GroupExchange({ onAddNewUser, onFindGroupSSanta,updateSecretSantaId, ssParticipants, setIsShowRes }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [isAdded, setIsAdded] = useState(false); 
 
   const priceRange = ['Choose a Price Range', [0,30], [31, 60], [61, 100], [100, 150], [151, 250], [251, 400], [401,1000]];
   const options = priceRange.map( price => 
@@ -33,6 +35,7 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta }) {
   const [ selectedPriceRange, setSelectedPriceRange] = useState('Choose a Price Range');
   const [ groupMembers, setGroupMembers] = useState([]);
   const [formData, setFormData] = useState({
+   // id: uuid(),
     name: '',
     lastname: '',
     email: '',
@@ -44,8 +47,8 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta }) {
       zipCode: '',
     },
     groupName: '',
-    secretSantaId: 0,
-    isRandomGift: false,
+   // secretSantaId: 0,
+    isRandomGift: true,
     wishlist: '',
     giftPriceRange: {
       min: 0,
@@ -78,7 +81,6 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta }) {
   function handleAddGroupMember () {
     if (formData.name === '' || formData.lastname === '' || formData.email === '' || formData.groupName === '') { 
       alert("Please enter group member information!");
-      console.log(formData.name, formData.lastname,formData.email, formData.groupName)
     } else {
       setGroupMembers([
         ...groupMembers,
@@ -88,30 +90,67 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta }) {
 
     const form = document.querySelector("#form"); 
     form.reset(); 
+
+    // setFormData({
+    //   name: '',
+    //   lastname: '',
+    //   email: '',
+    //   address: {
+    //     street: '',
+    //     city: '',
+    //     state: '',
+    //     country: '',
+    //     zipCode: '',
+    //   },
+    //   groupName: '',
+    //   isRandomGift: false,
+    //   wishlist: '',
+    //   giftPriceRange: {
+    //     min: 0,
+    //     max: 0,
+    //   },
+    // })
   }
   console.log('group ',groupMembers)
   
-  function handleSubmit (e) {
+  async function handleSubmit (e) {
     e.preventDefault();
-    if (groupMembers.length < 3) {
-      alert('Please add more then 2 group members');
+    if (groupMembers.length < 2) {
+      alert('Please add more then 1 group member');
     } else {
-      groupMembers.map( member =>
-        fetch('http://localhost:3000/participants', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(member),
-        })
-          .then(r => r.json())
-          .then( newMember => {
-            onAddNewUser(newMember);
-          })
-      );
-      setGroupMembers([]);
-      //onFindGroupSSanta();
-    }
+     //  groupMembers.map( async member => await addToDBandArr(member));
+    // getAllUsers();
+   
+      for (let i = 0; i < groupMembers.length; i++) {
+        let member = groupMembers[i];
+        await addToDBandArr(member);
+      }
+      setIsAdded(!isAdded);
+    }}
+//!!!!!!need to rewrite!!!!!!
+    useEffect(() => {
+      const group = ssParticipants.filter( participant => 
+        participant.groupName === groupMembers[0].groupName);
+console.log('useeffect group', group)
+        onFindGroupSSanta(group);
+    //     setIsShowRes(isAdded)
+         setGroupMembers([]);
+     }, [isAdded]);
 
+
+   
+  let addToDBandArr = async (user) => {
+    let req = await fetch('http://localhost:3000/participants', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(user),
+      });
+    let data = await req.json();
+    onAddNewUser(data);
+    
+    return data
   }
+        
 
   return (
     <div >
@@ -150,50 +189,3 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta }) {
   }
 
 export default GroupExchange;
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-  // function handleSubmit(e){
-  //   e.preventDefault(); 
-
-  //   if (groupMembers.length <= 1) {
-  //     alert('Please add more participants, more than one person is needed to exchange!');
-  //   } else {
-  //   groupMembers.map( member =>
-  //   fetch("http://localhost:3000/participants", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(
-  //       member
-  //     ),
-  //   })
-  
-  //     .then((r) => r.json())
-  //     .then((data) => { 
-  //                       addNewUserToGroupExchange(data)
-  //                     }))
-
-  //                     setGroupMembers([]);
-
-  //     alert(`Your Secret Santa group, ${group} ,has been created!`);
-  //     setOpen(true)
-  //     }
-
-  //     const form = document.querySelector("#form"); 
-  //     form.reset(); 
-
-      
-
-  // }

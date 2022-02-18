@@ -1,7 +1,7 @@
- import React, { useState } from "react";
- import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import React, { useState } from "react";
+import Box from '@mui/material/Box';
+// import Button from '@mui/material/Button';
+// import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Popup from './Popup'
 
@@ -21,6 +21,26 @@ const style = {
 // import FormControl from '@mui/material/FormControl';
 
 function IndividualExchange({ onAddNewUser, onFindSSanta }) {
+  const defaultFormData = {
+    name: '',
+    lastname: '',
+    email: '',
+    address: {
+      street: '',
+      city: '',
+      state: '',
+      country: '',
+      zipCode: '',
+    },
+    groupName: '',
+    //secretSantaId: 0,
+    isRandomGift: false,
+    wishlist: '',
+    giftPriceRange: {
+      min: 0,
+      max: 0,
+    },
+  };
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -35,26 +55,7 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
 
   const [ selectedPriceRange, setSelectedPriceRange] = useState('Choose a Price Range');
   const [ isWishList, setIsWishList] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    lastname: '',
-    email: '',
-    address: {
-      street: '',
-      city: '',
-      state: '',
-      country: '',
-      zipCode: '',
-    },
-    groupName: '',
-    secretSantaId: 0,
-    isRandomGift: false,
-    wishlist: '',
-    giftPriceRange: {
-      min: 0,
-      max: 0,
-    },
-  });
+  const [formData, setFormData] = useState(defaultFormData);
 
   function handleChange (e) {
     if ( address.includes(e.target.name)) {
@@ -109,42 +110,35 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
 let secretsantaRes;
   function handleSubmit (e) {
     e.preventDefault();
-    fetch('http://localhost:3000/participants', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    })
-      .then(r => r.json())
-      .then(newUser => {
-        const tryv = onAddNewUser(newUser);
-        console.log('tryv',tryv)
-        secretsantaRes = onFindSSanta(newUser);
-        console.log(secretsantaRes)
-        //console log here to see if it returns anything 
-        setOpen(true)
-      });
 
+    // fetch('http://localhost:3000/participants', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(formData),
+    // })
+    //   .then(r => r.json())
+    //   .then(newUser => {
+    //     onAddNewUser(newUser);
+    //     onFindSSanta(newUser);
+    //     setOpen(true)
+    //   });
+    addToDBandArr();
+  
+    setOpen(true);
     e.target.reset();
-    setFormData({
-      name: '',
-      lastname: '',
-      email: '',
-      address: {
-        street: '',
-        city: '',
-        state: '',
-        country: '',
-        zipCode: '',
-      },
-      groupName: '',
-      secretSantaId: 0,
-      isRandomGift: false,
-      wishlist: '',
-      giftPriceRange: {
-        min: 0,
-        max: 0,
-      },
-    })
+    setFormData(defaultFormData)
+  }
+
+  let addToDBandArr = async () => {
+    let req = await fetch('http://localhost:3000/participants', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+    let newUser = await req.json();
+    onAddNewUser(newUser);
+    onFindSSanta(newUser);
+    return newUser
   }
 
   const showWishListFields = isWishList 
