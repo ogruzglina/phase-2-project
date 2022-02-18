@@ -26,9 +26,10 @@ function App() {
     let fakeUsers = await request.json();
 
     if (isFakeUsers.current) {
+      let i = 0;
       const fakeUsersInfo = fakeUsers.map( fakeUser => {
         return {
-          id: uuid(),
+          id: i++,
           name: fakeUser.first_name,
           lastname: fakeUser.last_name,
           email: fakeUser.email,
@@ -40,7 +41,7 @@ function App() {
             zipCode: fakeUser.address.zip_code,
           },
           groupName: '',
-          secretSantaId: 0,
+          //secretSantaId: 0,
           isRandomGift: true,
           wishlist: "",
           giftPriceRange: {
@@ -78,14 +79,17 @@ function App() {
       && participant.id !== newUser.id 
       && participant.isRandomGift === newUser.isRandomGift
       && participant.giftPriceRange.min === newUser.giftPriceRange.min
-      && participant.secretSantaId === 0
+      && !participant.secretSantaId
     );
 
     if ( individualSSUsers.length > 0 ) {
       const randomSSanta = individualSSUsers[Math.floor(Math.random() * individualSSUsers.length)];
-  
-      updateSecretSantaId(newUser, randomSSanta);
-      updateSecretSantaId(randomSSanta, newUser);
+      individualGiveGift(newUser, randomSSanta)
+      alert(`${newUser.name}, your Secret Santa is ${randomSSanta.name} ${randomSSanta.lastname} ${randomSSanta.address}`)
+
+      individualGiveGift(randomSSanta, newUser)
+      // updateSecretSantaId(newUser, randomSSanta);
+      // updateSecretSantaId(randomSSanta, newUser);
      // alert(`Your Secret Santa is ${randomSSanta.name} ${randomSSanta.lastname} ${randomSSanta.address}`);
 
       setIsFoundSS(prevFound => true);
@@ -93,42 +97,78 @@ function App() {
   }
 let groupName;
 
-  async function findGroupSecretSanta (newUser) {
-    console.log('newUser', newUser);
-    console.log('sspart from fimnd', ssParticipants)
+async function individualGiveGift(giver, recipient) {
+  if (!recipient.secretSantaId) {
+    recipient.secretSantaId = giver.id 
+    await updateSecretSantaId(recipient)
+  }
+}
 
-    const groupSSUsers = ssParticipants.filter( participant => 
-      participant.groupName === newUser.groupName && participant.id !== newUser.id
-    );
-    //const groupSS = groupSSUsers.filter(participant => participant.id !== newUser.id );
-//debugger;
-    const ssid = groupSSUsers.map(user => user.secretSantaId !== 0 ? [user.id, user.secretSantaId] : null);
-    console.log("SSID is:", ssid);
+async function giveGift(giver, recipient) {
+  if (giver.secretSantaId !== recipient.id) {
+    recipient.secretSantaId = giver.id 
+    await updateSecretSantaId(recipient)
+  }
+}
 
-    const groupAgain = groupSSUsers.filter(participant => 
-        ssid.includes([participant.id, participant.secretSantaId]) ? null : participant);
+function findGroupSecretSanta(group) {
+   for (let i=0; i < group.length; i++) {
+      let giver = group[i];
+      let recipient = group[i+1];
+      if (giver && recipient) {
+         giveGift(giver, recipient)
+      }
+   }
+   let leftoverGiver = group[0]
+   let leftoverRecipient = group[group.length-1]
+   giveGift(leftoverRecipient, leftoverGiver)
+   group.map(user => {
+    const secretSanta = group.find(ssuser => ssuser.id === user.secretSantaId)
+    alert(`${user.name}, your Secret Santa is ${secretSanta.name} ${secretSanta.lastname}`)
+   })
+   
+}
+
+
+
+
+//rewrite!!!!!!!!!!!!!!
+//   async function findGroupSecretSanta (newUser) {
+//     console.log('newUser', newUser);
+//     console.log('sspart from fimnd', ssParticipants)
+
+//     const groupSSUsers = ssParticipants.filter( participant => 
+//       participant.groupName === newUser.groupName && participant.id !== newUser.id
+//     );
+//     //const groupSS = groupSSUsers.filter(participant => participant.id !== newUser.id );
+// //debugger;
+//     const ssid = groupSSUsers.map(user => user.secretSantaId !== 0 ? [user.id, user.secretSantaId] : null);
+//     console.log("SSID is:", ssid);
+
+//     const groupAgain = groupSSUsers.filter(participant => 
+//         ssid.includes([participant.id, participant.secretSantaId]) ? null : participant);
     
-        console.log('findgroup ',groupAgain)
+//         console.log('findgroup ',groupAgain)
 
-    const randomSSanta = groupAgain[Math.floor(Math.random() * groupAgain.length)];
-     console.log('random', randomSSanta)
+//     const randomSSanta = groupAgain[Math.floor(Math.random() * groupAgain.length)];
+//      console.log('random', randomSSanta)
 
-     await updateSecretSantaId(newUser, randomSSanta); 
-     groupName = newUser.groupName;
+//      await updateSecretSantaId(newUser, randomSSanta); 
+//      groupName = newUser.groupName;
 
     
- }
+//  }
 
 
-  let updateSecretSantaId = async (user, ssUser) => {
+  let updateSecretSantaId = async (user) => {//, ssUser) => {
   //  debugger;
-    console.log('patch ', user, ssUser)
+    console.log('patch ', user)//, ssUser)
     let req = await fetch(`http://localhost:3000/participants/${user.id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         ...user,
-        secretSantaId: ssUser.id,
+        secretSantaId: user.secretSantaId,
       }),
     });
     let updatedUser = await req.json();
@@ -157,8 +197,8 @@ let groupName;
   console.log('end of app ', ssParticipants);
 
   function deleteMatchedUsers () {
-    const matchedUsers = ssParticipants.filter( participant => participant.secretSantaId !== 0 );
-
+    const matchedUsers = ssParticipants.filter( participant => participant.secretSantaId );
+console.log('matchedUsers - ', matchedUsers)
     matchedUsers.map( user =>
       deleteFetch (user.id)
       // fetch(`http://localhost:3000/participants/${user.id}`, {
@@ -181,14 +221,14 @@ let groupName;
    function handleDelete (userId) {
     const updatedSsParticipants = ssParticipants.filter( participant => participant.id !== userId);
 
-    return setSSParticipants( updatedSsParticipants => updatedSsParticipants);
+    return setSSParticipants(updatedSsParticipants);
      
   }
 
   if ( isFoundSS ) {
     deleteMatchedUsers ();
 
-    setIsFoundSS (isFoundSS => false);
+    setIsFoundSS (false);
   }
 
 

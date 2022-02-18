@@ -47,7 +47,7 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta,updateSecretSantaId, ss
       zipCode: '',
     },
     groupName: '',
-    secretSantaId: 0,
+   // secretSantaId: 0,
     isRandomGift: true,
     wishlist: '',
     giftPriceRange: {
@@ -103,7 +103,6 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta,updateSecretSantaId, ss
     //     zipCode: '',
     //   },
     //   groupName: '',
-    //   secretSantaId: 0,
     //   isRandomGift: false,
     //   wishlist: '',
     //   giftPriceRange: {
@@ -128,16 +127,15 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta,updateSecretSantaId, ss
       }
       setIsAdded(!isAdded);
     }}
-
+//!!!!!!need to rewrite!!!!!!
     useEffect(() => {
-      const group = ssParticipants.filter( participant => participant.groupName === groupMembers[0].groupName);
-      group.map( member => 
-          member.secretSantaId !== 0 ? null : onFindGroupSSanta(member)
-        );
-
-        setIsShowRes(isAdded)
-        setGroupMembers([]);
-    }, [isAdded]);
+      const group = ssParticipants.filter( participant => 
+        participant.groupName === groupMembers[0].groupName);
+console.log('useeffect group', group)
+        onFindGroupSSanta(group);
+    //     setIsShowRes(isAdded)
+         setGroupMembers([]);
+     }, [isAdded]);
 
 
    

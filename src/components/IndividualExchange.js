@@ -33,7 +33,7 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
       zipCode: '',
     },
     groupName: '',
-    secretSantaId: 0,
+    //secretSantaId: 0,
     isRandomGift: false,
     wishlist: '',
     giftPriceRange: {
@@ -122,11 +122,8 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
     //     setOpen(true)
     //   });
     addToDBandArr();
-    
-    
-    
+  
     setOpen(true);
-
     e.target.reset();
     setFormData(defaultFormData)
   }
