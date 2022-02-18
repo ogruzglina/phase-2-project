@@ -1,39 +1,121 @@
 * {
   box-sizing: border-box;
-  text-align: center;
-  /* background-color: rgb(1, 31, 39); */
-  
+  text-align: center;  
+
+}
+h1{
+  font-size: 4vw;
 }
 
+h2{
+  font-size: 30px;
+}
+
+#individualForm{
+  padding: 3px; 
+  margin-top: 10px;
+}
+
+#individualForm input{
+  margin: 20px; 
+}
+
+#form{
+  padding: 3px;
+  margin-top: 10px; 
+}
+
+input{
+  font-family: 'Mountains of Christmas', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    /* display: block; */
+    text-align: center;
+    margin: 15px; 
+}
+
+select{
+  font-family: 'Mountains of Christmas', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    padding: 2px; 
+    border: 2px solid rgb(207, 206, 206);
+    border-radius: 10px;
+    /* margin-left: 8px; */
+    margin: 5px; 
+  }
+
+button{
+  padding: 10px 20px; 
+  border-radius: 8px;
+  border: solid white; 
+  background-color: rgb(94, 185, 94);
+  margin-top: 20px; 
+  font-weight:lighter;
+  font-family: 'Mountains of Christmas', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  cursor: pointer; 
+  color: rgb(247, 247, 247); 
+  /* box-shadow: black 5px 2px;  */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#groupButton{
+  margin-right: 1%; 
+  background-color: rgb(207, 89, 89);
+  font-family: 'Mountains of Christmas', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  cursor: pointer; 
+  color: rgb(247, 247, 247); 
+}
+
+
 input {
-  width: 25% !important;
+  width: 25%;
   margin: 0.25em!important; 
+  padding: 5px 10px;
+  border: 2.5px solid rgb(207, 206, 206);
+  border-radius: 10px;
+  font-size: 15px; 
+}
+
+#radio{
+    width: 1.5%;
+
+}
+
+#radio1{
+    width: 1.5%;
+
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Mountains of Christmas', cursive, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* button, select {
-  color: rgb(83, 0, 0); 
-} */
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+ul{
+  padding-left: 2rem;
+  list-style-type: none;
+  margin-left: 30px; 
+  font-size: 1.5vw;
 }
 
-#card-image{
-  width: 250px;
-  height: 250px; 
+ul li {
+  padding-left: 2rem;
+  text-align: left;
+  padding-bottom: 10px;
+  background-image: url("https://cdn.shopify.com/s/files/1/2009/8293/products/S1603.jpg?v=1575932460");
+  background-position: 0 0;
+  background-size: 1.6rem 1.6rem;
+  background-repeat: no-repeat;
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
-#card{
-border: 5px solid red;
-width: 450px; 
-height: 450px; 
-}

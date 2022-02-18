@@ -115,23 +115,24 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta }) {
 
   return (
     <div >
+      <h2>Add a Group: </h2>
       <form id='form' onSubmit = { handleSubmit }>
         <div className="inputs">
           <input type="text" name="name" placeholder="Name" onChange = { handleChange } />
           <input type="text" name="lastname" placeholder="Lastname" onChange = { handleChange } />
           <input type="email" name="email" placeholder="Email" onChange = { handleChange } />
           <br></br>
-          <label> Gift Price Range
+          <label> Gift Price Range:
             <select name="priceRange" value ={ selectedPriceRange } onChange={ handleChange }>
               { options }
             </select>
           </label>
           <input type="text" name="groupName" placeholder="Your group name" onChange = { handleChange } />
         </div>
-        <button type="button" onClick = { handleAddGroupMember }>
+        <button id="groupButton" type="button" onClick = { handleAddGroupMember }>
           Add Group Member
         </button>
-        <button type="submit">
+        <button id="submitGroupButton" type="submit">
           Submit Group {/*  need a name for this btn */}
         </button>
       </form>

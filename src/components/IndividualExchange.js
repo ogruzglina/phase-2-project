@@ -106,7 +106,7 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
       });
     }
   }
-
+let secretsantaRes;
   function handleSubmit (e) {
     e.preventDefault();
     fetch('http://localhost:3000/participants', {
@@ -118,7 +118,9 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
       .then(newUser => {
         const tryv = onAddNewUser(newUser);
         console.log('tryv',tryv)
-        onFindSSanta(newUser);
+        secretsantaRes = onFindSSanta(newUser);
+        console.log(secretsantaRes)
+        //console log here to see if it returns anything 
         setOpen(true)
       });
 
@@ -147,7 +149,6 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
 
   const showWishListFields = isWishList 
     ? <>
-      {/* <input type="textarea" name="wishlist" placeholder="Wish list" onChange = { handleChangeRadio }/> */}
       <textarea name="wishlist" placeholder="Wish list" onChange = { handleChangeRadio }/>
       <label> Gift price range 
         <select name="priceRange" value ={ selectedPriceRange }  onChange={ handleChangeRadio }>
@@ -159,7 +160,8 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
   
   return (
     <div >
-      <form onSubmit = { handleSubmit }>
+          <h2> Match with Another Santa: </h2>
+      <form id="individualForm" onSubmit = { handleSubmit }>
         <div className="inputs">
           <input type="text" name="name" placeholder="Name" onChange = { handleChange } required/>
           <input type="text" name="lastname" placeholder="Lastname" onChange = { handleChange } required/>
@@ -171,8 +173,8 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
           <input type="email" name="email" placeholder="Email" onChange = { handleChange } required/>
           <br></br>
           <div onChange = { handleChangeRadio }>
-            <input type="radio" name="isRandomGift" value="randomGift" /> Random Gift
-            <input type="radio" name="isRandomGift" value="wishlist" /> Create a wish list
+            <input id="radio" type="radio" name="isRandomGift" value="randomGift" /> Random Gift
+            <input id="radio1" type="radio" name="isRandomGift" value="wishlist" /> Create a wish list
           </div>
           {showWishListFields}
         </div>
@@ -186,7 +188,7 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
         onClose={handleClose}
       >
         <Box sx={style}>
-          <Popup />
+          <Popup secretsantaRes = {secretsantaRes}/>
         </Box>
       </Modal>
     </div>

@@ -11,6 +11,7 @@ function App() {
   const [ ssParticipants, setSSParticipants ] = useState([]);
   const [ isFoundSS, setIsFoundSS] = useState(false);
   let isFakeUsers = useRef(false);
+
   
 
   useEffect(() => {
@@ -91,12 +92,14 @@ function App() {
 
     if ( individualSSUsers.length > 0 ) {
       const randomSSanta = individualSSUsers[Math.floor(Math.random() * individualSSUsers.length)];
+      //or pull it down from here 
+
   
       updateSecretSantaId(newUser, randomSSanta);
       updateSecretSantaId(randomSSanta, newUser);
      // alert(`Your Secret Santa is ${randomSSanta.name} ${randomSSanta.lastname} ${randomSSanta.address}`);
-
       setIsFoundSS(isFoundSS => true);
+      return randomSSanta; 
     }
   }
 
