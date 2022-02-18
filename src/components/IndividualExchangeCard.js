@@ -8,30 +8,14 @@ function IndividualExchangeCard() {
 
   return (
     <div>
-        {/* Create card similar to the elfster card- has a link to the other 
-            page, some image, and a subheading
-        */}
-        {/* Create json file with new data, then import each of the elements to make 
-        the componenet dynamic
-        */}
-        {/* Then you can call the individual card and have it import the data*/}
-        
-        {/* <div id="card">
-            <img id="card-image" src="" alt="Card image cap"></img>
-            <div>
-                <h2 >Card title</h2>
-                <p>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <Link to="/individualexchange"> Individual Exchange </Link>
-            </div>
-        </div> */}
-
-        <Grid container>
+        <Grid container justifyContent="center" spacing={5}>
             <Grid item >
-                <Card sx={{ maxWidth: 350 }}>
+                <Card variant="outlined" sx={{ maxWidth: 500 }}>
                     <CardMedia
                         component="img"
-                        height="350"
-                        image="https://www.lawlessfrench.com/wp-content/uploads/present-participle-as-adjective.jpg"
+                        height="200"
+                        image="https://media.istockphoto.com/vectors/concept-with-secret-santa-vector-id1064095906?k=20&m=1064095906&s=612x612&w=0&h=eG4UE_gl92sz7fJQS5EVCs77RkPMnmbtOsPiBoahz8Y="
+                        // image="https://www.lawlessfrench.com/wp-content/uploads/present-participle-as-adjective.jpg"
                         alt="single present image"
                     />
 
@@ -45,18 +29,20 @@ function IndividualExchangeCard() {
                     </Typography>
                     </CardContent>
 
-                    <CardActions>
+                    <CardActions justifyContent="center">
                             <Link to="/individual-exchange"> Individual Exchange </Link>
                     </CardActions>
                 </Card>
             </Grid>
 
             <Grid item >
-            <Card sx={{ maxWidth: 350 }}>
+            <Card variant="outlined" sx={{ maxWidth: 500 }}>
                     <CardMedia
                         component="img"
-                        height="350"
-                        image="https://www.creativefabrica.com/wp-content/uploads/2021/03/15/pile-of-gifts-Graphics-9608894-1.jpg"
+                        height="200"
+                        width='100%'
+                        // image="https://www.creativefabrica.com/wp-content/uploads/2021/03/15/pile-of-gifts-Graphics-9608894-1.jpg"
+                        image="https://edtech4beginnerscom.files.wordpress.com/2017/10/490989713-e1508467778912.jpg"
                         alt="group present image"
                     />
 

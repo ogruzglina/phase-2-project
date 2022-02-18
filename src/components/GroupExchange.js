@@ -88,27 +88,6 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta }) {
 
     const form = document.querySelector("#form"); 
     form.reset(); 
-
-    // setFormData({
-    //   name: '',
-    //   lastname: '',
-    //   email: '',
-    //   address: {
-    //     street: '',
-    //     city: '',
-    //     state: '',
-    //     country: '',
-    //     zipCode: '',
-    //   },
-    //   groupName: '',
-    //   secretSantaId: 0,
-    //   isRandomGift: false,
-    //   wishlist: '',
-    //   giftPriceRange: {
-    //     min: 0,
-    //     max: 0,
-    //   },
-    // })
   }
   console.log('group ',groupMembers)
   
@@ -129,17 +108,10 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta }) {
           })
       );
       setGroupMembers([]);
-   
-
-
-      onFindGroupSSanta();
+      //onFindGroupSSanta();
     }
 
   }
-
-  
-
-  
 
   return (
     <div >
@@ -149,7 +121,7 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta }) {
           <input type="text" name="lastname" placeholder="Lastname" onChange = { handleChange } />
           <input type="email" name="email" placeholder="Email" onChange = { handleChange } />
           <br></br>
-          <label> Gift price renge
+          <label> Gift Price Range
             <select name="priceRange" value ={ selectedPriceRange } onChange={ handleChange }>
               { options }
             </select>
@@ -160,7 +132,7 @@ function GroupExchange({ onAddNewUser, onFindGroupSSanta }) {
           Add Group Member
         </button>
         <button type="submit">
-          Submit the group {/*  need a name for this btn */}
+          Submit Group {/*  need a name for this btn */}
         </button>
       </form>
 
