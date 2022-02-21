@@ -1,5 +1,4 @@
 import React from "react";
-import Popup from "./Popup";
 import IndividualExchangeCard from "./IndividualExchangeCard";
 
 

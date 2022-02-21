@@ -13,7 +13,7 @@ function NavBar() {
     <div>
       <Box sx={{ width: '100%', bgcolor: 'background.paper' }}> 
         <Tabs value={value} onChange={handleChange} centered>
-          <Tab value={0} label="Home" to="/" component={Link} exact />
+        <Tab value={0} label="Home" to="/" exact="true" component={Link} exact="true"/>
           <Tab value={1} label="Individual Exchange" to="/individual-exchange" component={Link} />
           <Tab value={2} label="Group Exchange" to="/group-exchange" component={Link} />
         </Tabs>

@@ -1,24 +1,4 @@
 import React, { useState } from "react";
-import Box from '@mui/material/Box';
-// import Button from '@mui/material/Button';
-// import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
-import Popup from './Popup'
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
-};
-
-// import TextField from '@mui/material/TextField';
-// import FormControl from '@mui/material/FormControl';
 
 function IndividualExchange({ onAddNewUser, onFindSSanta }) {
   const defaultFormData = {
@@ -33,7 +13,6 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
       zipCode: '',
     },
     groupName: '',
-    //secretSantaId: 0,
     isRandomGift: false,
     wishlist: '',
     giftPriceRange: {
@@ -41,9 +20,6 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
       max: 0,
     },
   };
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   const priceRange = ['Choose a Price Range', [0,30], [31, 60], [61, 100], [100, 150], [151, 250], [251, 400], [401,1000]];
   const address = ['street', 'city', 'state', 'country', 'zipCode'];
@@ -57,7 +33,7 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
   const [ isWishList, setIsWishList] = useState(false);
   const [formData, setFormData] = useState(defaultFormData);
 
-  function handleChange (e) {
+  function handleChange(e) {
     if ( address.includes(e.target.name)) {
       setFormData({
         ...formData,
@@ -74,7 +50,7 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
     } 
   }
 
-  function handleChangeRadio (e) {
+  function handleChangeRadio(e) {
     if (e.target.name === 'isRandomGift') {
       if (e.target.value === 'randomGift') { 
         setIsWishList(false);
@@ -107,24 +83,11 @@ function IndividualExchange({ onAddNewUser, onFindSSanta }) {
       });
     }
   }
-let secretsantaRes;
-  function handleSubmit (e) {
-    e.preventDefault();
 
-    // fetch('http://localhost:3000/participants', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(formData),
-    // })
-    //   .then(r => r.json())
-    //   .then(newUser => {
-    //     onAddNewUser(newUser);
-    //     onFindSSanta(newUser);
-    //     setOpen(true)
-    //   });
+  function handleSubmit(e) {
+    e.preventDefault();
     addToDBandArr();
-  
-    setOpen(true);
+
     e.target.reset();
     setFormData(defaultFormData)
   }
@@ -174,17 +137,9 @@ let secretsantaRes;
         </div>
 
         <button type="submit">
-          Submit  {/*  need a name for this btn */}
+          Submit  
         </button>
       </form>
-      <Modal
-        open={open}
-        onClose={handleClose}
-      >
-        <Box sx={style}>
-          <Popup secretsantaRes = {secretsantaRes}/>
-        </Box>
-      </Modal>
     </div>
   );
 }
