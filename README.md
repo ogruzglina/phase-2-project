@@ -17,7 +17,7 @@ User will be removed from the db.json file only after the pair is generated.
  - CSS, 
  - JSON server for storing users info 
 
-## Author
+## Authors
 **Olha Gruzglina** and **Alison Melendez**
 
 - [Github](https://github.com/ogruzglina "Olha Gruzglina")
