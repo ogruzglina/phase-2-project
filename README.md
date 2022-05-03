@@ -1,5 +1,6 @@
 ## Secret Santa
 It's an opportunity to find a random person from the same price category to exchange gifts or create your group of friends to generate random pairs.
+
 <img src="src/assets/SecretSanta.gif" width="500">
 
 There are two different logic for generating pairs: 
