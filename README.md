@@ -18,8 +18,11 @@ User will be removed from the db.json file only after the pair is generated.
  - JSON server for storing users info 
 
 ## Authors
-**Olha Gruzglina** and **Alison Melendez**
+_**Olha Gruzglina**_ and _**Alison Melendez**_
 
-- [Github](https://github.com/ogruzglina "Olha Gruzglina")
-- [Email](mailto:olga.zhmura@gmail.com?subject=Hi% "Hi!")
-- [Linkedin](https://www.linkedin.com/in/olha-gruzglina-a4403b53/ "Olha Gruzglina")
+## Contact Information
+
+- [Olha's Github](https://github.com/ogruzglina "Olha Gruzglina")
+- [Olha's Linkedin](https://www.linkedin.com/in/olha-gruzglina-a4403b53/ "Olha Gruzglina")
+- [Alison's Github](https://github.com/alisonmelendez "Alison Melendez") 
+- [Alison's Linkedin](https://www.linkedin.com/in/alison-melendez/ "Alison Melendez")
