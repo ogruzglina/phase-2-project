@@ -80,7 +80,7 @@ function App() {
     if ( individualSSUsers.length > 0 ) {
       const randomSSanta = individualSSUsers[Math.floor(Math.random() * individualSSUsers.length)];
       individualGiveGift(newUser, randomSSanta)
-      alert(`${newUser.name}, your Secret Santa is ${randomSSanta.name} ${randomSSanta.lastname} ${randomSSanta.address}`)
+      alert(`${newUser.name}, your Secret Santa is ${randomSSanta.name} ${randomSSanta.lastname} ${JSON.stringify(randomSSanta.address, null, 4)}`)
       
       individualGiveGift(randomSSanta, newUser)
       setIsFoundSS(prevFound => true);
